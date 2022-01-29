@@ -1,7 +1,7 @@
 from flask import Flask
 
 app = Flask(__name__)
-csrf = CSRFProtect()
+csrf = CSRFProtect(app)
 csrf.init_app(app) # Compliant
 
 @app.route('/example/', methods=['POST']) # Compliant
