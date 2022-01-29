@@ -1,4 +1,3 @@
-from flask_wtf.csrf import CsrfProtect
 from flask import Flask
 
 app = Flask(__name__)
