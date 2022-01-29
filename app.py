@@ -8,9 +8,10 @@ def pagina_inicial():
 
     return "Hello World - Lucas Guimaraes - FIAP"
 
-class unprotectedForm(FlaskForm):
-    pass
-    class Meta:
+from flask_wtf import FlaskForm
+ 
+class ContactForm(FlaskForm):
+   pass
         csrf = True # Compliant
 
     name = TextField('name')
