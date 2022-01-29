@@ -4,10 +4,16 @@ app = Flask(__name__)
 csrf = CSRFProtect()
 csrf.init_app(app)
 
-@app.route('/example/', methods=['POST'])
-@csrf.exempt # Sensitive
-def pagina_inicial():
-    return "Hello World - Lucas Guimaraes - FIAP"
+@app.route('/example/', methods=['POST']) # Compliant
+def example():
+    return 'example '
+
+class unprotectedForm(FlaskForm):
+    class Meta:
+        csrf = True # Compliant
+
+    name = TextField('name')
+    submit = SubmitField('submit')
 
 if __name__ == '__main__':
     app.run()
