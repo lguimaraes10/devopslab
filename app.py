@@ -2,6 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
+csrf = CSRFProtect()
+csrf.init_app(app)
+
 @app.route("/")
 def pagina_inicial():
     return "Hello World - Lucas Guimaraes - FIAP"
@@ -9,9 +12,3 @@ def pagina_inicial():
 if __name__ == '__main__':
     app.run()
 
-    class unprotectedForm(FlaskForm):
-    class Meta:
-        csrf = True
-
-         name = TextField('name')
-    submit = SubmitField('submit')
