@@ -8,3 +8,10 @@ def pagina_inicial():
 
 if __name__ == '__main__':
     app.run()
+
+    class unprotectedForm(FlaskForm):
+    class Meta:
+        csrf = True
+
+         name = TextField('name')
+    submit = SubmitField('submit')
