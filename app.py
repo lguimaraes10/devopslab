@@ -1,6 +1,9 @@
+from flask_wtf.csrf import CsrfProtect
 from flask import Flask
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app) # Compliant
 
 @app.route("/")
 def pagina_inicial():
@@ -8,10 +11,3 @@ def pagina_inicial():
 
 if __name__ == '__main__':
     app.run()
-
-from flask_wtf.csrf import CsrfProtect
-app = Flask(__name__)
-app.secret_key = 'very secret'
-CsrfProtect(app)
-
-WTF_CSRF_ENABLED = True
