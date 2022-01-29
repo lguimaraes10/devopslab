@@ -5,6 +5,7 @@ csrf = CSRFProtect()
 csrf.init_app(app)
 
 @app.route('/example/', methods=['POST'])
+@csrf.exempt # Sensitive
 def pagina_inicial():
     return "Hello World - Lucas Guimaraes - FIAP"
 
