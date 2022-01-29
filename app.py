@@ -1,11 +1,10 @@
 from flask import Flask
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
-#csrf = CSRFProtect()
-#csrf.init_app(app)
-
-@app.route("/")
+@app.route('/example/', methods=['POST'])
 def pagina_inicial():
     return "Hello World - Lucas Guimaraes - FIAP"
 
