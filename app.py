@@ -5,7 +5,7 @@ app.config['WTF_CSRF_ENABLED'] = False
 
 @app.route("/")
 def pagina_inicial():
-    return "Hello World - Lucas Guimaraes - FIAP"
+    return "Hello World - 30/03/2022 - FIAP"
 
 
 if __name__ == '__main__':
