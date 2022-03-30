@@ -97,6 +97,7 @@ jobs:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
       - name: 'Deploy to App Engine'
+        id: appengine
         env:
           ARTIFACT_REGISTRY: ${{ secrets.ARTIFACT_REGISTRY }}
         uses: 'google-github-actions/deploy-appengine@main'
