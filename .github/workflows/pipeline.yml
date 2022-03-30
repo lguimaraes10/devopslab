@@ -96,13 +96,15 @@ jobs:
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
-      - name: Deploy to App Engine
-        id: appengine
-        env: 
+      - name: 'Deploy to App Engine'
+        env:
           ARTIFACT_REGISTRY: ${{ secrets.ARTIFACT_REGISTRY }}
         uses: 'google-github-actions/deploy-appengine@v0'
         with:
           image_url: ${{ secrets.ARTIFACT_REGISTRY }}/myapp:latest
+          deliverables: 'app.yaml'
+          promote: false
+          version: 'v1'
 
       - name: Prod Test
         run: 'curl "${{ steps.appengine.outputs.url }}"'
